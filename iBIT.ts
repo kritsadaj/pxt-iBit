@@ -94,7 +94,23 @@ namespace iBIT {
            pins.analogWritePin(AnalogPin.P16, motorspeed)
         }
     }
-
+    export function Motor2(Motor: ibitMotor, speed1: number,speed2:number): void {  
+        let motorspeed1 = pins.map(speed1,0,100,0,1023)
+        let motorspeed2 = pins.map(speed2,0,100,0,1023)
+        
+        if (Motor == ibitMotor.Forward) {
+           pins.digitalWritePin(DigitalPin.P13, 1)
+           pins.analogWritePin(AnalogPin.P14, motorspeed1)
+           pins.digitalWritePin(DigitalPin.P15, 0)
+           pins.analogWritePin(AnalogPin.P16, motorspeed2)
+        }
+        if (Motor == ibitMotor.Backward) {
+           pins.digitalWritePin(DigitalPin.P13, 0)
+           pins.analogWritePin(AnalogPin.P14, motorspeed1)
+           pins.digitalWritePin(DigitalPin.P15, 1)
+           pins.analogWritePin(AnalogPin.P16, motorspeed2)
+        }
+    }
      /**Turn Block set direction TurnLeft or TurnRight. The speed motor is adjustable between 0 to 100.
       * @param speed percent of maximum speed, eg: 50
       */
