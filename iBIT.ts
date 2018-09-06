@@ -2,9 +2,18 @@
   * Enumeration of Motor.
   */
 enum ibitMotor {
-    //% block="Forward \u21c8"
+    //% block="\u21c8"
     Forward,
-    //% block="Backward \u21ca"
+    //% block=" \u21ca"
+    Backward
+}
+/**
+  * Enumeration of Motor2.
+  */
+enum ibitMotor2 {
+    //% block="\u21c8"
+    Forward,
+    //% block=" \u21ca"
     Backward
 }
 
@@ -94,6 +103,12 @@ namespace iBIT {
            pins.analogWritePin(AnalogPin.P16, motorspeed)
         }
     }
+     /**Motor Block to drives motor forward and backward. The speed motor is adjustable between 0 to 100.
+      * @param speed percent of maximum speed, eg: 50
+      */
+    //% blockId="ibit_Motor2" block="Motor2 %ibitMotor|speed1 %speed|speed2 %speed"
+    //% speed.min=0 speed.max=100
+    //% weight=100
     export function Motor2(Motor: ibitMotor, speed1: number,speed2:number): void {  
         let motorspeed1 = pins.map(speed1,0,100,0,1023)
         let motorspeed2 = pins.map(speed2,0,100,0,1023)
@@ -111,6 +126,7 @@ namespace iBIT {
            pins.analogWritePin(AnalogPin.P16, motorspeed2)
         }
     }
+ 
      /**Turn Block set direction TurnLeft or TurnRight. The speed motor is adjustable between 0 to 100.
       * @param speed percent of maximum speed, eg: 50
       */
