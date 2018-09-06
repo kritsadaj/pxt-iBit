@@ -1,13 +1,12 @@
 #include "pxt.h"
-
-
 /**
  * Provides access to basic micro:bit functionality.
+ * การเรียกใช้งานในโหมด Basic   
  */
 //% color=#0078D7 weight=100 icon="\uf00a"
 namespace basic {
-
     /**
+     * เลื่อนตัวเลขที่หน้าจอ แต่ถ้าตัวเลขพอดีกับหน้าจอ เช่นเลขหลักเดียว ก็ไม่ต้องเลื่อน
      * Scroll a number on the screen. If the number fits on the screen (i.e. is a single digit), do not scroll.
      * @param interval speed of scroll; eg: 150, 100, 200, -100
      */
